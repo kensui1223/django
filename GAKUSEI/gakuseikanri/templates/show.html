@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gakusei Record</title>
+        {% load static %}
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>学籍番号</th>
+                    <th>名前</th>
+                    <th>電話番号</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gakuseikanri in gakuseikanris %}
+                <tr>
+                    <td>{{gakuseikanri.eid}}</td>
+                    <td>{{gakuseikanri.ename}}</td>
+                    <td>{{gakuseikanri.enumber}}</td>
+                    <td>{{gakuseikanri.eemail}}</td>
+                    <td>
+                        <button class="button button1"><a href="/edit{{ gakuseikanri.id  }}">編集</a></button>
+                        <button><a href="/delete/{{ gakuseikanri.id }}">削除</a></button>
+                    </td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <button><a style=color:rgb(20,17,17); href="/gsk">追加</a></button>
+    </body>
+</html>
