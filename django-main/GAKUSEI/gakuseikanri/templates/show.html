@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gakusei Record</title>
+        {% load static %}
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>学籍番号</th>
+                    <th>名前</th>
+                    <th>電話番号</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Student in students %}
+                <tr>
+                    <td>{{Student.id}}</td>
+                    <td>{{Student.student_id}}</td>
+                    <td>{{Student.student_name}}</td>
+                    <td>{{Student.student_number}}</td>
+                    <td>{{Student.student_email}}</td>
+                    <td>
+                        <button class="button button1"><a href="/edit/{{ Student.id }}">編集</a></button>
+                        <button><a href="/delete/{{ Student.id }}">削除</a></button>
+                    </td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <form method="get" action="serach/{{ Student.student_id }}">
+            <input type="text" name="student_id" value="{{ request.GET.query }}">
+        <button type="submit" style=color:rgb(20,17,17);>検索</button></form>
+
+        <button><a style=color:rgb(20,17,17); href="/gsk">追加</a></button><br>
+        
+    </body>
+</html>
