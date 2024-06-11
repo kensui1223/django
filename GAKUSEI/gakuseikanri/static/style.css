@@ -1,0 +1,32 @@
+/*general*/
+body {
+    background-color: white;
+    height: 100%;
+    margin: 2.5rem;
+    padding-left: 1rem;
+}
+
+/*レイアウト*/
+table,
+tr,
+th,
+td {
+    border: 1px solid;
+    border-color: red;
+    color: #fff;
+    background-color: #000;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+/*btn*/
+.btn {
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    transition: .5s
+}
+.btn:hover {
+    border-radius: 2rem;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>学生フォーム</title>
+</head>
+<body>
+    <h1>学生フォーム</h1>
+   <form method="POST" action="/edit/{{student.id}}">
+        {% csrf_token %}
+        <div>
+            <p>学籍番号</p>
+            <div>
+                <input type="text" name="student_id" value="{{student.student_id}}" />
+            </div>
+        </div>
+        <div>
+            <p>名前</p>
+            <div>
+                <input type="text" name="name" value="{{student.name}}" />
+            </div>
+        </div>
+        <div>
+            <p>電話番号</p>
+            <div>
+                <input type="text" name="number" value="{{student.number}}" />
+            </div>
+        </div>
+        <div>
+            <p>E-mail</p>
+            <div>
+                <input type="email" name="email" value="{{student.email}}" />
+            </div>
+        <div>
+        <button type="submit">保存</button>
+    </form>
+    <a href="{% url 'student_list' %}">戻る</a>
+</body>
+</html>

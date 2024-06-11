@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生削除確認</title>
+</head>
+<body>
+    <h1>学生削除確認</h1>
+    <p>本当に {{ student.name }} を削除しますか？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">削除</button>
+    </form>
+    <a href="{% url 'student_list' %}">キャンセル</a>
+</body>
+</html>
